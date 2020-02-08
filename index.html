@@ -12,7 +12,21 @@
        *{
         scroll-behavior: smooth !important;
        }
+       .hide{
+           display:none;
+       }
+
     </style>
+    <script type="text/javascript">
+        setInterval(function(){
+            if(document.body.scrollTop>=850){
+                document.getElementById('top-arrow').classList.remove('hide');
+            }else{
+                document.getElementById('top-arrow').classList.add('hide');
+            }    
+        },500)
+       
+    </script>
 </head>
 
 <body>
@@ -24,7 +38,7 @@
         </div>
 
         <!-- TOP ARROW -->
-        <div id="top-arrow" style="position: fixed; font-size: 100px; right: 20px; bottom: 0px;">
+        <div id="top-arrow" class="hide" style="position: fixed;font-size: 100px; right: 20px; bottom: 0px;">
             <a href="#main-page"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
         </div>
 
