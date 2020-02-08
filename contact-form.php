@@ -1,16 +1,17 @@
 <?php
 
-if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $country = $_POST['country'];
-    $message = $_POST['message'];
-
-    $mailTo = "example@example.com";
-    $headers = "From: ".$name;
-    $txt = "You have received a suggestion by ".$name."from ".$country.".\n\n".$message;
-
-    mail(mailTo, $country, $txt, $headers);
-    header(Location: index.html?mailsend);
+$connection = mysqli_connect('localhost','tourist','123','touristdestination');
+if($connection){
+    if(isset($_POST['submit'])){
+        $name = $_POST['name'];
+        $country = $_POST['country'];
+        $message = $_POST['message'];
+        $sql = "INSERT INTO contact (name, country, suggestion) VALUES ('".$name."','". $country."','".$message."')";
+        $result=mysqli_query($connection,$sql);
+        header('Location:index.html#done');
+    }   
 }
+
+
 
 ?>
